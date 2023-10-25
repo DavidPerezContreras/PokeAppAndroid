@@ -1,7 +1,7 @@
 package perez.david.pokeappandroid.data.pokemon.remote
 
-import perez.david.pokeappandroid.data.api.PokemonApiService
-import perez.david.pokeappandroid.domain.model.Pokemon
+import perez.david.pokeappandroid.datasource.api.PokemonApiService
+import perez.david.pokeappandroid.model.Pokemon
 import retrofit2.Retrofit
 import javax.inject.Inject
 

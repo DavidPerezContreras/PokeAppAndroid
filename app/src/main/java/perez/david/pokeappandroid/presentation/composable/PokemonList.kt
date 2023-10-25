@@ -15,13 +15,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import coil.compose.AsyncImage
-import com.google.android.material.progressindicator.CircularProgressIndicator
-import perez.david.pokeappandroid.domain.common.ResourceState
-import perez.david.pokeappandroid.domain.model.Pokemon
+import perez.david.pokeappandroid.model.Pokemon
+import perez.david.pokeappandroid.model.ResourceState
 import perez.david.pokeappandroid.presentation.theme.PokeAppAndroidTheme
 import perez.david.pokeappandroid.presentation.view.Greeting
+import perez.david.pokeappandroid.presentation.viewmodel.PokemonViewModel
 
-
+@Composable
+fun PokemonPagingList( pokemonViewModel: PokemonViewModel){
+}
 
 @Composable
 fun PokemonList(pokemonListResourceState: ResourceState<List<Pokemon>>){

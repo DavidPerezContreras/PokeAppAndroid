@@ -13,10 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.fragment.app.FragmentActivity
-import perez.david.pokeappandroid.R
-import perez.david.pokeappandroid.domain.common.ResourceState
 import dagger.hilt.android.AndroidEntryPoint
-import perez.david.pokeappandroid.domain.model.Pokemon
+import perez.david.pokeappandroid.R
+import perez.david.pokeappandroid.model.Pokemon
+import perez.david.pokeappandroid.model.ResourceState
 import perez.david.pokeappandroid.presentation.theme.PokeAppAndroidTheme
 import perez.david.pokeappandroid.presentation.view.fragment.PokemonListFragment
 import java.util.Locale

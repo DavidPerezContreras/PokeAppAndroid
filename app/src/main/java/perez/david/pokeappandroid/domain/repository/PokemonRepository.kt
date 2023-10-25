@@ -1,6 +1,6 @@
 package perez.david.pokeappandroid.domain.repository
 
-import perez.david.pokeappandroid.domain.model.Pokemon
+import perez.david.pokeappandroid.model.Pokemon
 
 
 interface PokemonRepository {

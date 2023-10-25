@@ -1,6 +1,6 @@
 package perez.david.pokeappandroid.data.pokemon.local
 
-import perez.david.pokeappandroid.domain.model.Pokemon
+import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
 
 

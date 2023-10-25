@@ -1,6 +1,6 @@
-package perez.david.pokeappandroid.data.api
+package perez.david.pokeappandroid.datasource.api
 
-import perez.david.pokeappandroid.domain.common.response.PokemonListResponse
+import perez.david.pokeappandroid.datasource.api.response.PokemonListResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

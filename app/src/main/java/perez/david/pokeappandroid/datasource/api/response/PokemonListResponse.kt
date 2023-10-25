@@ -1,4 +1,4 @@
-package perez.david.pokeappandroid.domain.common.response
+package perez.david.pokeappandroid.datasource.api.response
 
 data class PokemonListResponse(
     val count: Int,

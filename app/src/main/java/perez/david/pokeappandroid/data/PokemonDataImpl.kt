@@ -2,8 +2,8 @@ package perez.david.pokeappandroid.data
 
 import perez.david.pokeappandroid.data.pokemon.local.PokemonLocalImpl
 import perez.david.pokeappandroid.data.pokemon.remote.PokemonRemoteImpl
-import perez.david.pokeappandroid.domain.model.Pokemon
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
+import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
 
 

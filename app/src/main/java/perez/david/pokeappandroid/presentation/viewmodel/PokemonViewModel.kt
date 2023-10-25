@@ -7,12 +7,12 @@
     import kotlinx.coroutines.flow.StateFlow
     import kotlinx.coroutines.launch
     import perez.david.pokeappandroid.data.PokemonDataImpl
-    import perez.david.pokeappandroid.domain.common.ResourceState
-    import perez.david.pokeappandroid.domain.model.Pokemon
+    import perez.david.pokeappandroid.model.Pokemon
+    import perez.david.pokeappandroid.model.ResourceState
     import javax.inject.Inject
 
     @HiltViewModel
-    class PokemonViewModel @Inject constructor(
+    class PokemonViewModel @Inject constructor (
         private val pokemonRepository: PokemonDataImpl
     ) : ViewModel() {
         private val _pokemonListState: MutableStateFlow<ResourceState<List<Pokemon>>> = MutableStateFlow(

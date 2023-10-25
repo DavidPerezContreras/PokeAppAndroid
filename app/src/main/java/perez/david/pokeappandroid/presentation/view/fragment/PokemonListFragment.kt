@@ -8,8 +8,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import perez.david.pokeappandroid.domain.common.ResourceState
-import perez.david.pokeappandroid.domain.model.Pokemon
+import perez.david.pokeappandroid.model.Pokemon
+import perez.david.pokeappandroid.model.ResourceState
 import perez.david.pokeappandroid.presentation.composable.PokemonList
 import perez.david.pokeappandroid.presentation.viewmodel.PokemonViewModel
 

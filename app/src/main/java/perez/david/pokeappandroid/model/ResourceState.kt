@@ -1,4 +1,4 @@
-package perez.david.pokeappandroid.domain.common
+package perez.david.pokeappandroid.model
 
 sealed class ResourceState<T> {
 
