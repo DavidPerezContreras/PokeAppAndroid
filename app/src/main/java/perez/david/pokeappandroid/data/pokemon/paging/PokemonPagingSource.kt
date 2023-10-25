@@ -16,7 +16,7 @@ class PokemonPagingSource
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
         try {
-            val page = params.key ?: 1
+            val page = params.key ?: 0
             val limit = params.loadSize
             //Timber.tag("Paging").i("Page: $page")
             // Puede ser un flow, o una suspend que se traiga cosas de cualquier sitio,
@@ -33,7 +33,7 @@ class PokemonPagingSource
 
             return LoadResult.Page(
                 data = response,
-                prevKey = if (page == 1) null else page.minus(1),
+                prevKey = if (page == 0) null else page.minus(1),
                 nextKey = if (response.isEmpty()) null else page.plus(1),
             )
 

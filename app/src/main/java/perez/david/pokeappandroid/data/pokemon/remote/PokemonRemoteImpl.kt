@@ -13,8 +13,9 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
         try {
             return pokemonService.getPokemonList(limit,offset).results.map { Pokemon(it.name,it.url) }
         } catch (e: Exception) {
-            // Handle network or API errors here
-            throw e
+
+            return getPokemonList(limit,offset)
+
         }
     }
 
