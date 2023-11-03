@@ -4,10 +4,11 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import perez.david.pokeappandroid.data.PokemonDataImpl
-import perez.david.pokeappandroid.data.pokemon.local.PokemonLocalImpl
-import perez.david.pokeappandroid.data.pokemon.paging.PokemonPagingSource
-import perez.david.pokeappandroid.data.pokemon.remote.PokemonRemoteImpl
+import perez.david.pokeappandroid.data.feature.pokemon.PokemonDataImpl
+import perez.david.pokeappandroid.datasource.feature.pokemon.PokemonRemoteImpl
+import perez.david.pokeappandroid.datasource.feature.pokemon.cache.PokemonCache
+import perez.david.pokeappandroid.datasource.feature.pokemon.local.PokemonLocalImpl
+import perez.david.pokeappandroid.datasource.feature.pokemon.paging.PokemonPagingSource
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import perez.david.pokeappandroid.domain.usecase.AllPokemonUseCase
 import retrofit2.Retrofit
@@ -17,11 +18,12 @@ import retrofit2.Retrofit
 object RepositoryModule {
     @Provides
     fun providePokemonRepository(
-        pokemonLocalImpl: PokemonLocalImpl, pokemonRemoteImpl: PokemonRemoteImpl
+        pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonRemoteImpl
     ): PokemonRepository {
         return PokemonDataImpl(
             pokemonRemoteImpl,
-            pokemonLocalImpl
+            pokemonCache
+
         ) // or however your repository is created
     }
 

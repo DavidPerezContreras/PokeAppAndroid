@@ -1,4 +1,4 @@
-package perez.david.pokeappandroid.data.pokemon.paging
+package perez.david.pokeappandroid.datasource.feature.pokemon.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState

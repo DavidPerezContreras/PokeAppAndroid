@@ -1,4 +1,4 @@
-package perez.david.pokeappandroid.data.pokemon.local
+package perez.david.pokeappandroid.datasource.feature.pokemon.local
 
 import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject

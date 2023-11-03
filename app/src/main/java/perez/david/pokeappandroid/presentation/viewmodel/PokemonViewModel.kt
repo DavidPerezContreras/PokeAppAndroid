@@ -1,16 +1,7 @@
     package perez.david.pokeappandroid.presentation.viewmodel
 
-    import androidx.lifecycle.ViewModel
-    import androidx.lifecycle.viewModelScope
-    import dagger.hilt.android.lifecycle.HiltViewModel
-    import kotlinx.coroutines.flow.MutableStateFlow
-    import kotlinx.coroutines.flow.StateFlow
-    import kotlinx.coroutines.launch
-    import perez.david.pokeappandroid.data.PokemonDataImpl
-    import perez.david.pokeappandroid.model.Pokemon
-    import perez.david.pokeappandroid.model.ResourceState
-    import javax.inject.Inject
 
+    /*
     @HiltViewModel
     class PokemonViewModel @Inject constructor (
         private val pokemonRepository: PokemonDataImpl
@@ -35,3 +26,4 @@
             }
         }
     }
+*/

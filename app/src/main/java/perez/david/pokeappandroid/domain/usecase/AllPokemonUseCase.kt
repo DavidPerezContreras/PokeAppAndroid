@@ -2,7 +2,7 @@ package perez.david.pokeappandroid.domain.usecase
 
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
-import perez.david.pokeappandroid.data.pokemon.paging.PokemonPagingSource
+import perez.david.pokeappandroid.datasource.feature.pokemon.paging.PokemonPagingSource
 import javax.inject.Inject
 
 open class AllPokemonUseCase @Inject constructor(
