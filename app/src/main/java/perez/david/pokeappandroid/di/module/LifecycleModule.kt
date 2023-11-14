@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import perez.david.pokeappandroid.data.feature.pokemon.PokemonDataImpl
-import perez.david.pokeappandroid.datasource.feature.pokemon.PokemonRemoteImpl
+import perez.david.pokeappandroid.datasource.feature.pokemon.remote.PokemonRemoteImpl
 import perez.david.pokeappandroid.datasource.feature.pokemon.cache.PokemonCache
 import perez.david.pokeappandroid.datasource.feature.pokemon.local.PokemonLocalImpl
 import perez.david.pokeappandroid.datasource.feature.pokemon.paging.PokemonPagingSource

@@ -87,6 +87,6 @@ fun PokemonCard(pokemon: Pokemon) {
 @Preview(showBackground = true)
 @Composable
 fun PokemonCardPreview() {
-        PokemonCard(Pokemon("David", url =""))
+        PokemonCard(Pokemon("David", -1, listOf()))
 
 }
