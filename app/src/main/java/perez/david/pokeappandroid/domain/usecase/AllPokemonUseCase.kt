@@ -13,7 +13,10 @@ open class AllPokemonUseCase @Inject constructor(
         // la primera petición (es así) multiplica el pagesize * 3
         config = PagingConfig(
             pageSize = limit,
-            prefetchDistance = limit / 2 // aquí recolectamos a la mitad, asi va más "fluido"
+            enablePlaceholders = false,
+            maxSize = 30,
+            prefetchDistance = 3,
+            initialLoadSize = limit
         ),
         pagingSourceFactory = {
             pagingSource

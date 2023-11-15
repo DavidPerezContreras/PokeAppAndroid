@@ -16,7 +16,6 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import perez.david.pokeappandroid.presentation.viewmodel.PokemonListViewModel
-import java.util.UUID
 
 @Composable
 fun PokemonList(viewModel: PokemonListViewModel) {
@@ -39,7 +38,7 @@ fun PokemonList(viewModel: PokemonListViewModel) {
             ) {
                 items(
                     count = pokemons.itemCount,
-                    key = pokemons.itemKey { _ -> UUID.randomUUID().toString() }
+                    key = pokemons.itemKey { pokemon -> pokemon.id }
                 ) { characterIndex ->
                     pokemons[characterIndex]?.let { item ->
                         PokemonCard(pokemon = item)

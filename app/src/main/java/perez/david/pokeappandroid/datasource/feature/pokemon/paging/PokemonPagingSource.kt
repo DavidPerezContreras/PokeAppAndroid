@@ -18,17 +18,12 @@ class PokemonPagingSource
         try {
             val page = params.key ?: 0
             val limit = params.loadSize
-            //Timber.tag("Paging").i("Page: $page")
-            // Puede ser un flow, o una suspend que se traiga cosas de cualquier sitio,
-            // es un repositorio, por tanto...
+            var offset=page*limit
+
+
             val response = pokemonRepository.getPokemonList(
-                limit,page*limit
+                limit,offset
             )
-
-            //TODO(/*GET THEIR DETAILS*/)
-
-
-
 
 
             return LoadResult.Page(
