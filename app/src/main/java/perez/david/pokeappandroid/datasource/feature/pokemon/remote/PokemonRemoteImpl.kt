@@ -41,7 +41,6 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
     suspend fun getAbilityList(remoteAbilityList: List<RemoteAbility>): List<Ability> {
         val abilities = mutableListOf<Ability>()
         for (remoteAbility in remoteAbilityList) {
-            val id:Int=extractId(remoteAbility.url)
             val abilityDetails = getAbilityById(1)
             abilities.add(Ability(name=abilityDetails.name, id=abilityDetails.id, flavorTextEntries = abilityDetails.flavorTextEntries))
         }
@@ -59,7 +58,6 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
             coroutineScope {
                 val pokemonDetailsDeferred = remotePokemonList.map { remotePokemon ->
                     val id = extractId(remotePokemon.url)
-                    val id2=id+1
                     async { getPokemonById(id) }
                 }
 

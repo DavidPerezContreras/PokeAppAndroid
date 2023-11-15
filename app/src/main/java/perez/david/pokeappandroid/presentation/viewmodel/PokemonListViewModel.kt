@@ -13,7 +13,7 @@
         private val allPokemonUseCase: AllPokemonUseCase,
     ) : ViewModel() {
 
-        val allPokemonFlow: Flow<PagingData<Pokemon>> = allPokemonUseCase(20)
+        val allPokemonFlow: Flow<PagingData<Pokemon>> = allPokemonUseCase(10)
 
 
     }

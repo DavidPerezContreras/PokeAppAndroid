@@ -1,22 +1,13 @@
 package perez.david.pokeappandroid.domain.usecase
 
+import androidx.paging.ExperimentalPagingApi
 import androidx.paging.Pager
-import androidx.paging.PagingConfig
-import perez.david.pokeappandroid.datasource.feature.pokemon.paging.PokemonPagingSource
+import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
 
 open class AllPokemonUseCase @Inject constructor(
-    private val pagingSource: PokemonPagingSource
+    private val pager:Pager<Int, Pokemon>
 ) {
-    operator fun invoke(limit: Int) = Pager(
-        // aquí el tamaño de página se comporta de forma curiosa,
-        // la primera petición (es así) multiplica el pagesize * 3
-        config = PagingConfig(
-            pageSize = limit,
-            prefetchDistance = limit / 2 // aquí recolectamos a la mitad, asi va más "fluido"
-        ),
-        pagingSourceFactory = {
-            pagingSource
-        }
-    ).flow // Si nos fijamos creamos un flow directamente desde el caso de uso.
+    @OptIn(ExperimentalPagingApi::class)
+    operator fun invoke(limit: Int) = pager.flow
 }
