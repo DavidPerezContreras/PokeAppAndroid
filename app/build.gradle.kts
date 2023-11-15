@@ -18,8 +18,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-
+        //testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "perez.david.pokeappandroid.CustomTestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -92,6 +92,8 @@ dependencies {
 
 
     implementation("androidx.room:room-runtime:2.6.0")
+    implementation("androidx.test.ext:junit-ktx:1.1.5")
+    implementation("androidx.test:runner:1.5.2")
     kapt("androidx.room:room-compiler:2.6.0")
 
     //implementation("io.coil-kt:coil-compose:2.4.0")
@@ -156,6 +158,29 @@ dependencies {
     implementation ("com.google.dagger:hilt-android:2.48.1")
     kapt ("com.google.dagger:hilt-compiler:2.48.1")
 
+
+// Local Unit Tests
+    /*implementation( "androidx.test:core:1.5.0")
+    testImplementation ( "junit:junit:4.13.2")
+    testImplementation ( "org.hamcrest:hamcrest-all:1.3")
+    testImplementation ( "androidx.arch.core:core-testing:2.2.0")
+    testImplementation ( "org.robolectric:robolectric:4.3.1")
+    testImplementation ( "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    testImplementation ( "com.google.truth:truth:1.0.1")
+    testImplementation ( "org.mockito:mockito-core:5.3.1")
+
+    // Instrumented Unit Tests
+    androidTestImplementation ( "junit:junit:4.13.2")
+    //androidTestImplementation ( "com.linkedin.dexmaker:dexmaker-mockito:2.12.1")
+    androidTestImplementation ( "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
+    androidTestImplementation ( "androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation ( "com.google.truth:truth:1.0.1")
+    androidTestImplementation ( "androidx.test.ext:junit:1.1.5")
+    androidTestImplementation ( "androidx.test.espresso:espresso-core:3.5.1")
+    androidTestImplementation ( "org.mockito:mockito-core:5.3.1")
+    androidTestImplementation ( "com.google.dagger:hilt-android-testing:2.48.1")
+    kaptAndroidTest ( "com.google.dagger:hilt-android-compiler:2.44")
+*/
 }
 
 
