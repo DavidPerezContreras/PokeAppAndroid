@@ -44,11 +44,7 @@ fun PokemonList(viewModel: PokemonListViewModel) {
                         PokemonCard(pokemon = item)
                     }
 
-                    // Check if we're at the last item in the list
                     if (characterIndex == pokemons.itemCount - 1) {
-                        // Show the LinearProgressIndicator at the bottom
-
-
                         if (isRefreshing || isAppending) {
                             LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                         }

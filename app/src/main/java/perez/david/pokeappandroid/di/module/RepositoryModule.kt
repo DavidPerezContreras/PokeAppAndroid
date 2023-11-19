@@ -28,9 +28,16 @@ object RepositoryModule {
         return PokemonDataImpl(
             pokemonRemoteImpl,
             pokemonCache
-
         ) // or however your repository is created
     }
+
+    @Provides
+    @Singleton
+    fun providePokemonCache():PokemonCache{
+        return PokemonCache()
+    }
+
+
 /*
     @Provides
     @Singleton
