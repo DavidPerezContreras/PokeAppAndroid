@@ -19,17 +19,17 @@ import perez.david.pokeappandroid.presentation.viewmodel.PokemonListViewModel
 
 @Composable
 fun PokemonList(viewModel: PokemonListViewModel) {
-    val pokemons = viewModel.allPokemonFlow.collectAsLazyPagingItems()
+    val pokemons = viewModel.pokemonFlow.collectAsLazyPagingItems()
 
     val isRefreshing = pokemons.loadState.refresh is LoadState.Loading
     val isAppending = pokemons.loadState.append is LoadState.Loading
 
     Scaffold { paddingValues ->
-            if(pokemons.itemCount<=0){
-                Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.BottomCenter) {
-                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-                }
+        if(pokemons.itemCount<=0){
+            Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.BottomCenter) {
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
+        }
 
             LazyColumn(
                 modifier = Modifier

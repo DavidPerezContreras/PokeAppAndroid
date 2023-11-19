@@ -19,10 +19,28 @@ class PokemonDataImpl @Inject constructor(
     override suspend fun getPokemonList(limit:Int, offset:Int): List<Pokemon> = withContext(Dispatchers.IO) {
         val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)
 
-        //pokemonCache.pokemonList.addAll(remotePokemonsChunk);
+        pokemonCache.pokemonList.addAll(remotePokemonsChunk);
 
 
         remotePokemonsChunk
-    }
+    }/*
+    override suspend fun getPokemonList(limit:Int, offset:Int): List<Pokemon> = withContext(Dispatchers.IO) {
+
+        var vuelta:List<Pokemon>
+
+        val cache=pokemonCache.pokemonList.subList(offset,offset+limit)
+        vuelta = if(cache.size==10){
+            cache
+        }else{
+
+            val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)
+
+            pokemonCache.pokemonList.addAll(remotePokemonsChunk);
+
+
+            remotePokemonsChunk
+        }
+        return@withContext vuelta
+    }*/
 
 }
