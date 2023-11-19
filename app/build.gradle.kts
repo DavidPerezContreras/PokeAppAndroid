@@ -94,7 +94,7 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.0")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
     implementation("androidx.test:runner:1.5.2")
-    kapt("androidx.room:room-compiler:2.6.0")
+    //kapt("androidx.room:room-compiler:2.6.0")
 
     //implementation("io.coil-kt:coil-compose:2.4.0")
 
@@ -109,26 +109,16 @@ dependencies {
 
 
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    implementation("androidx.lifecycle:lifecycle-service:2.6.2")
-    //implementation(project(mapOf("path" to ":domain")))
-    //implementation(project(mapOf("path" to ":model")))
-    //implementation("io.insert-koin:koin-android:3.4.3")
-    //implementation("io.insert-koin:koin-core:3.4.3")
-    //implementation("io.insert-koin:koin-androidx-compose:3.4.0")
-    implementation("androidx.activity:activity-compose:1.8.0")
+    implementation("androidx.activity:activity-compose:1.8.1")
     implementation(platform("androidx.compose:compose-bom:2023.08.00"))
     implementation("androidx.constraintlayout:constraintlayout-compose:1.0.1")
     implementation("androidx.paging:paging-runtime-ktx:3.2.1")
     implementation("androidx.paging:paging-compose:3.2.1")
-    implementation("androidx.navigation:navigation-compose:2.7.4")
+    implementation("androidx.navigation:navigation-compose:2.7.5")
 
     implementation ("io.coil-kt:coil-compose:2.4.0") // Coil Core
-    implementation ("io.coil-kt:coil-gif:2.4.0") // Support for Gif presentation implementation "io.coil-kt:coil-svg:2.4.0" // Support for SVG
-    implementation ("io.coil-kt:coil-video:2.4.0") // Support for video frame presentation
+    //implementation ("io.coil-kt:coil-gif:2.4.0") // Support for Gif presentation implementation "io.coil-kt:coil-svg:2.4.0" // Support for SVG
+    //implementation ("io.coil-kt:coil-video:2.4.0") // Support for video frame presentation
 
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
@@ -144,8 +134,8 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
 
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    //implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
+    //implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
 
 
     //implementation("androidx.paging:paging-runtime-ktx:3.2.1")

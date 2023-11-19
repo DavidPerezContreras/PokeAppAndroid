@@ -18,17 +18,11 @@ class PokemonDataImpl @Inject constructor(
 
     override suspend fun getPokemonList(limit:Int, offset:Int): List<Pokemon> = withContext(Dispatchers.IO) {
         val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)
-        //once we have the remote pokemon we store it in cache.
-        // pokemonCache is a singleton for pokemon Feature
-        pokemonCache.pokemonList.addAll(remotePokemonsChunk);
 
-        //We return an INMUTABLE list.
-        // We always read from the cache,
-        //Paging ensures us to keep it up to date.
-        // we just must see if that chunk is stored already. and take it from there.
-        //Thats how it should work
+        //pokemonCache.pokemonList.addAll(remotePokemonsChunk);
 
-        pokemonCache.pokemonList.toList()
+
+        remotePokemonsChunk
     }
 
 }

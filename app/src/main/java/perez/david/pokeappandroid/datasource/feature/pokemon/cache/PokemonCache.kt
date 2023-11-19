@@ -8,7 +8,7 @@ class PokemonCache @Inject constructor() {
     var pokemonList :MutableList<Pokemon> = mutableListOf<Pokemon>()
 
 
-    suspend fun getPokemonList(limit:Int, offset:Int): List<Pokemon> {
+     fun getPokemonList(limit:Int, offset:Int): List<Pokemon> {
         var vuelta= listOf<Pokemon>();
 
 

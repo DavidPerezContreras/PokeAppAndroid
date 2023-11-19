@@ -22,7 +22,6 @@ object RepositoryModule {
 
 
     @Provides
-    @Singleton
     fun providePokemonRepository(
         pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonRemoteImpl
     ): PokemonRepository {
@@ -32,7 +31,7 @@ object RepositoryModule {
 
         ) // or however your repository is created
     }
-
+/*
     @Provides
     @Singleton
     fun providePokemonLocalImpl(
@@ -57,5 +56,5 @@ object RepositoryModule {
         return AllPokemonUseCase(PokemonPagingSource(pokemonRepository)) // or however your repository is created
     }
 
-
+*/
 }

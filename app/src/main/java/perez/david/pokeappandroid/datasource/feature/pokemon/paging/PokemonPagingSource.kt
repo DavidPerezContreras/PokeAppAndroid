@@ -2,9 +2,12 @@ package perez.david.pokeappandroid.datasource.feature.pokemon.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.coroutineScope
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 class PokemonPagingSource
 @Inject constructor(
@@ -19,11 +22,13 @@ class PokemonPagingSource
             val page = params.key ?: 0
             val limit = params.loadSize
             var offset=page*limit
+            var response: List<Pokemon> = listOf()
+           coroutineScope {
+               response = pokemonRepository.getPokemonList(
+                   limit,offset
+               )
+            }
 
-
-            val response = pokemonRepository.getPokemonList(
-                limit,offset
-            )
 
 
             return LoadResult.Page(
