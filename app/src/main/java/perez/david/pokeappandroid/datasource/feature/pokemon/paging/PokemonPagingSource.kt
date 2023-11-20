@@ -3,7 +3,9 @@ package perez.david.pokeappandroid.datasource.feature.pokemon.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
@@ -16,7 +18,6 @@ class PokemonPagingSource
     /*override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
         return ( (state.anchorPosition ?: 0) - state.config.initialLoadSize / 2).coerceAtLeast(0)
     }*/
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
         try {
             val page = params.key ?: 0
@@ -24,11 +25,11 @@ class PokemonPagingSource
             var offset=page*limit
             var response: List<Pokemon> = listOf()
 
-
+                //scope.launch {
                response = pokemonRepository.getPokemonList(
                    limit,offset
                )
-
+               // }
 
 
 
