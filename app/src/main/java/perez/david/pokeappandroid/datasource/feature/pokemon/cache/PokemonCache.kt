@@ -9,20 +9,20 @@ class PokemonCache  {
 
     // Synchronize access to pokemonList
     fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
-        synchronized(this) {
+        //synchronized(this) {
             val subList = pokemonList.subList(fromIndex = offset, toIndex = offset + limit)
             return if (subList.size == limit) {
                 subList.toList()
             } else {
                 emptyList()
             }
-        }
+        //}
     }
 
     // Add a method to update pokemonList (if needed)
     fun addAllPokemon(pokemons: List<Pokemon>) {
-        synchronized(this) {
+        //synchronized(this) {
             pokemonList.addAll(pokemons)
-        }
+        //}
     }
 }
