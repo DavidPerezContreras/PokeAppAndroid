@@ -6,11 +6,11 @@ import javax.inject.Inject
 
 class PokemonCache  {
 
-    private val pokemonList: MutableLiveData<List<Pokemon>> = MutableLiveData<List<Pokemon>>(listOf<Pokemon>())
+    private val pokemonList: MutableList<Pokemon> = mutableListOf()
 
     fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
 
-            val subList = pokemonList.value!!.subList(fromIndex = offset, toIndex = offset + limit).toList()
+            val subList = pokemonList.subList(fromIndex = offset, toIndex = offset + limit)
             return if (subList.size == limit) {
                 subList
             } else {
@@ -21,6 +21,6 @@ class PokemonCache  {
 
 
     fun addAllPokemon(pokemons: List<Pokemon>) {
-            pokemonList.value= pokemonList.value?.plus(pokemons)
+            pokemonList.addAll(pokemons)
     }
 }
