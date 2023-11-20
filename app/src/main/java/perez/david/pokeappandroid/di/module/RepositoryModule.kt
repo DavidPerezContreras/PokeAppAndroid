@@ -20,6 +20,11 @@ object RepositoryModule {
 
 
 
+    @Provides
+    @Singleton
+    fun providePokemonCache():PokemonCache{
+        return PokemonCache()
+    }
 
     @Provides
     fun providePokemonRepository(
@@ -31,11 +36,6 @@ object RepositoryModule {
         ) // or however your repository is created
     }
 
-    @Provides
-    @Singleton
-    fun providePokemonCache():PokemonCache{
-        return PokemonCache()
-    }
 
 
 /*
