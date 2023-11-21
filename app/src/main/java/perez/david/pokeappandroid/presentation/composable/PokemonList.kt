@@ -12,25 +12,25 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import perez.david.pokeappandroid.presentation.viewmodel.PokemonListViewModel
-import java.util.UUID
 
 @Composable
-fun PokemonList(viewModel: PokemonListViewModel) {
-    val pokemons = viewModel.allPokemonFlow.collectAsLazyPagingItems()
+fun PokemonList(viewModel: PokemonListViewModel = viewModel()) {
+    val pokemons = viewModel.pokemonFlow.collectAsLazyPagingItems()
 
     val isRefreshing = pokemons.loadState.refresh is LoadState.Loading
     val isAppending = pokemons.loadState.append is LoadState.Loading
 
     Scaffold { paddingValues ->
-            if(pokemons.itemCount<=0){
-                Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.BottomCenter) {
-                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
-                }
+        if(pokemons.itemCount<=0){
+            Box(modifier = Modifier.fillMaxSize(),contentAlignment = Alignment.BottomCenter) {
+                LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
             }
+        }
 
             LazyColumn(
                 modifier = Modifier
@@ -39,17 +39,13 @@ fun PokemonList(viewModel: PokemonListViewModel) {
             ) {
                 items(
                     count = pokemons.itemCount,
-                    key = pokemons.itemKey { _ -> UUID.randomUUID().toString() }
+                    key = pokemons.itemKey { pokemon -> pokemon.id }
                 ) { characterIndex ->
                     pokemons[characterIndex]?.let { item ->
                         PokemonCard(pokemon = item)
                     }
 
-                    // Check if we're at the last item in the list
                     if (characterIndex == pokemons.itemCount - 1) {
-                        // Show the LinearProgressIndicator at the bottom
-
-
                         if (isRefreshing || isAppending) {
                             LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
                         }

@@ -54,7 +54,7 @@ fun PokemonCard(pokemon: Pokemon) {
                     .align(Alignment.CenterVertically)
             ) {
                 Text(
-                    text = "Name: ${pokemon.name}",
+                    text = "${pokemon.id} ${pokemon.name}",
                     style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp)
                 )
                 // You can add more information here if needed
@@ -87,6 +87,6 @@ fun PokemonCard(pokemon: Pokemon) {
 @Preview(showBackground = true)
 @Composable
 fun PokemonCardPreview() {
-        PokemonCard(Pokemon("David", -1, listOf()))
+        PokemonCard(Pokemon("David", -1))
 
 }

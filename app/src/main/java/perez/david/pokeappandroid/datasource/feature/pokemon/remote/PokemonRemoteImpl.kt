@@ -49,8 +49,20 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
     }
 
 
+    suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
+        val pokemons = mutableListOf<Pokemon>()
+
+        val remotePokemonList = pokemonService.getPokemonList(limit, offset).results
+        remotePokemonList.forEach{
+            pokemons.add(Pokemon(it.name,extractId(it.url)))
+        }
+
+        return pokemons
+    }
 
 
+
+/*
     suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
         try {
             val pokemons = mutableListOf<Pokemon>()
@@ -87,7 +99,7 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
         }
     }
 
-
+*/
 }
 
 

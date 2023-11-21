@@ -2,31 +2,33 @@ package perez.david.pokeappandroid.datasource.feature.pokemon.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.MainScope
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 class PokemonPagingSource
 @Inject constructor(
     private val pokemonRepository: PokemonRepository
 ) : PagingSource<Int, Pokemon>() {
     override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
-        return null
+        return ( (state.anchorPosition ?: 0) - state.config.initialLoadSize / 2).coerceAtLeast(0)
     }
-
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
         try {
             val page = params.key ?: 0
             val limit = params.loadSize
-            //Timber.tag("Paging").i("Page: $page")
-            // Puede ser un flow, o una suspend que se traiga cosas de cualquier sitio,
-            // es un repositorio, por tanto...
-            val response = pokemonRepository.getPokemonList(
-                limit,page*limit
-            )
+            var offset=page*limit
+            var response: List<Pokemon> = listOf()
 
-            //TODO(/*GET THEIR DETAILS*/)
 
+               response = pokemonRepository.getPokemonList(
+                   limit,offset
+               )
 
 
 
@@ -43,4 +45,8 @@ class PokemonPagingSource
         }
 
     }
+
+    /*override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
+        return null
+    }*/
 }

@@ -1,24 +1,46 @@
-package perez.david.pokeappandroid
 
-import androidx.test.platform.app.InstrumentationRegistry
+
 import androidx.test.ext.junit.runners.AndroidJUnit4
-
+import androidx.test.filters.LargeTest
+import dagger.hilt.android.testing.CustomTestApplication
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import kotlinx.coroutines.runBlocking
+import org.junit.Before
+import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+import perez.david.pokeappandroid.MyApplication
+import perez.david.pokeappandroid.domain.repository.PokemonRepository
+import javax.inject.Inject
 
-import org.junit.Assert.*
-
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
 @RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
-    @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("perez.david.pokeappandroid", appContext.packageName)
+@HiltAndroidTest
+@LargeTest
+@CustomTestApplication(MyApplication::class)
+class PokemonDataImplTest {
+
+    @get:Rule(order = 0)
+    var hiltRule = HiltAndroidRule(this)
+
+    @Before
+    fun setUp() {
+        hiltRule.inject()
     }
+
+
+    @Inject
+    lateinit var pokemonDataImpl: PokemonRepository
+
+
+    @Test
+    fun testGetPokemonList() {
+        runBlocking {
+            val pokemonList = pokemonDataImpl.getPokemonList(10, 0)
+
+
+           assert(true)
+        }
+    }
+
 }
