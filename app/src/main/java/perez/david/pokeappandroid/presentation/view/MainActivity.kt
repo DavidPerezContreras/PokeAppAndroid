@@ -17,13 +17,17 @@ import perez.david.pokeappandroid.presentation.view.fragment.PokemonListFragment
 import java.util.Locale
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Use your XML layout for the activity
-        setContent{
-            PokemonList()
+        setContentView(R.layout.fragment_pokemon)
+
+        // Create and commit the fragment to the container
+        if (savedInstanceState == null) {
+            val fragment = PokemonListFragment() // Create an instance of your fragment
+            supportFragmentManager.beginTransaction().replace(R.id.container, fragment).commit()
         }
 
     }
