@@ -7,16 +7,20 @@ import javax.inject.Inject
 class PokemonCache  {
 
     private val pokemonList: MutableList<Pokemon> = mutableListOf()
-
+    fun getCacheSize():Int = pokemonList.size
     fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
 
-            val subList = pokemonList.subList(fromIndex = offset, toIndex = offset + limit)
-            return if (subList.size == limit) {
-                subList
-            } else {
-                emptyList()
+        //TODO
+        //return if (pokemonList.size !=0) {
+            val subList:MutableList<Pokemon> = mutableListOf()
+            for (i in offset until limit + offset) {
+                subList.add(Pokemon((i+1).toString(),i+1))
             }
 
+            return subList
+        //} else {
+           // emptyList()
+        //}
     }
 
 

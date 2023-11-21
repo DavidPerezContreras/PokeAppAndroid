@@ -57,7 +57,7 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
             pokemons.add(Pokemon(it.name,extractId(it.url)))
         }
 
-        return pokemons
+        return pokemons.toList()
     }
 
 
