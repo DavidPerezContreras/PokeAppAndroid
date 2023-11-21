@@ -18,7 +18,7 @@ class PokemonDataImpl (
 
 
         val cache=pokemonCache.getPokemonList(limit,offset)
-        val vuelta:List<Pokemon> = if(pokemonCache.getCacheSize()!=0){
+        val vuelta:List<Pokemon> = if(pokemonCache.getCacheSize()<offset){//cuidado
              cache
         }else{
             val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)

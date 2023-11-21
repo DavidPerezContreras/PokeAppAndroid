@@ -14,7 +14,10 @@ class PokemonCache  {
         //return if (pokemonList.size !=0) {
             val subList:MutableList<Pokemon> = mutableListOf()
             for (i in offset until limit + offset) {
-                subList.add(Pokemon((i+1).toString(),i+1))
+
+                if(pokemonList.toList().getOrNull(i)!=null){
+                    subList[i]=(Pokemon((i+1).toString(),i+1))
+                }
             }
 
             return subList
