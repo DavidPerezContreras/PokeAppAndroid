@@ -28,7 +28,7 @@
 
         init {
             viewModelScope.launch {
-                allPokemonUseCase.invoke(10).cachedIn(viewModelScope).collect {
+                allPokemonUseCase.invoke(30).cachedIn(viewModelScope).collect {
                     _pokemonResponse.value = it
                 }
             }
