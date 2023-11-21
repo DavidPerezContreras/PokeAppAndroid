@@ -15,9 +15,9 @@ class PokemonPagingSource
 @Inject constructor(
     private val pokemonRepository: PokemonRepository
 ) : PagingSource<Int, Pokemon>() {
-    /*override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
+    override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
         return ( (state.anchorPosition ?: 0) - state.config.initialLoadSize / 2).coerceAtLeast(0)
-    }*/
+    }
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Pokemon> {
         try {
             val page = params.key ?: 0
@@ -25,11 +25,11 @@ class PokemonPagingSource
             var offset=page*limit
             var response: List<Pokemon> = listOf()
 
-                //scope.launch {
+
                response = pokemonRepository.getPokemonList(
                    limit,offset
                )
-               // }
+
 
 
 
@@ -46,7 +46,7 @@ class PokemonPagingSource
 
     }
 
-    override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
+    /*override fun getRefreshKey(state: PagingState<Int, Pokemon>): Int? {
         return null
-    }
+    }*/
 }

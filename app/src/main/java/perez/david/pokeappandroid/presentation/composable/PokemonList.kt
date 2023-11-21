@@ -12,13 +12,14 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import perez.david.pokeappandroid.presentation.viewmodel.PokemonListViewModel
 
 @Composable
-fun PokemonList(viewModel: PokemonListViewModel) {
+fun PokemonList(viewModel: PokemonListViewModel = viewModel()) {
     val pokemons = viewModel.pokemonFlow.collectAsLazyPagingItems()
 
     val isRefreshing = pokemons.loadState.refresh is LoadState.Loading

@@ -14,7 +14,8 @@ class PokemonDataImpl (
 
 
     override suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
-        //return pokemonRemoteImpl.getPokemonList(limit, offset)
+        return pokemonRemoteImpl.getPokemonList(limit, offset)
+
 
         val cache=pokemonCache.getPokemonList(offset,offset+limit)
         val vuelta:List<Pokemon> = if(cache.size==limit){
