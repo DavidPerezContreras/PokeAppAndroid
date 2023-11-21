@@ -31,8 +31,6 @@ class PokemonPagingSource
                )
 
 
-
-
             return LoadResult.Page(
                 data = response,
                 prevKey = if (page == 0) null else page.minus(1),

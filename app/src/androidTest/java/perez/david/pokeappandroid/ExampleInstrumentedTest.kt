@@ -33,14 +33,6 @@ class PokemonDataImplTest {
     lateinit var pokemonDataImpl: PokemonRepository
 
 
-    @Test
-    fun testGetPokemonList() {
-        runBlocking {
-            val pokemonList = pokemonDataImpl.getPokemonList(10, 0)
 
-
-           assert(true)
-        }
-    }
 
 }

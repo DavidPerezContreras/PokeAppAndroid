@@ -21,7 +21,7 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
         var vuelta = url.dropLast(1) // Drops last slash
         var lastIndexOfSlash = vuelta.lastIndexOf("/")
         vuelta = vuelta.substring(lastIndexOfSlash + 1, vuelta.length)
-        print("pokemon id: $vuelta")
+        //print("pokemon id: $vuelta")
         return vuelta.toInt()
     }
 
@@ -87,7 +87,7 @@ class PokemonRemoteImpl @Inject constructor(retrofit: Retrofit){
                         abilities = abilities
                     )
 
-                    print(abilities.toString())
+                    //print(abilities.toString())
 
                     pokemons.add(pokemon)
                 }

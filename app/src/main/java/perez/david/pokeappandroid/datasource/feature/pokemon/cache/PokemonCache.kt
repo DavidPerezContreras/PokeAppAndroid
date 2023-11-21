@@ -1,26 +1,29 @@
 package perez.david.pokeappandroid.datasource.feature.pokemon.cache
 
-import androidx.lifecycle.MutableLiveData
 import perez.david.pokeappandroid.model.Pokemon
-import javax.inject.Inject
-
 class PokemonCache  {
 
     private val pokemonList: MutableList<Pokemon> = mutableListOf()
 
-    fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
+    suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
 
-            val subList = pokemonList.subList(fromIndex = offset, toIndex = offset + limit)
-            return if (subList.size == limit) {
-                subList
-            } else {
-                emptyList()
+            var size=pokemonList.size
+
+
+            val subList = mutableListOf<Pokemon>()
+
+            for(i in offset until limit+offset){
+                subList.add(i+1, Pokemon(i.toString(),i, listOf()))
             }
+
+            var vuelta=subList.toList()
+
+        return vuelta
 
     }
 
 
-    fun addAllPokemon(pokemons: List<Pokemon>) {
+    suspend fun addAllPokemon(pokemons: List<Pokemon>) {
             pokemonList.addAll(pokemons)
     }
 }
