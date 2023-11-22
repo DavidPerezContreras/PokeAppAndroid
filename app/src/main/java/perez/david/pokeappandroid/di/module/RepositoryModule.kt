@@ -18,8 +18,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object RepositoryModule {
 
-
-
     @Provides
     @Singleton
     fun providePokemonCache():PokemonCache{
@@ -33,35 +31,7 @@ object RepositoryModule {
         return PokemonDataImpl(
             pokemonRemoteImpl,
             pokemonCache
-        ) // or however your repository is created
+        )
     }
 
-
-
-/*
-    @Provides
-    @Singleton
-    fun providePokemonLocalImpl(
-    ): PokemonLocalImpl {
-        return PokemonLocalImpl() // or however your repository is created
-    }
-
-    @Provides
-    @Singleton
-    fun providePokemonRemoteImpl(
-        retrofit: Retrofit
-    ): PokemonRemoteImpl {
-        return PokemonRemoteImpl(retrofit) // or however your repository is created
-    }
-
-
-    @Provides
-    @Singleton
-    fun provideAllPokemonUseCase(
-        pokemonRepository: PokemonRepository
-    ): AllPokemonUseCase {
-        return AllPokemonUseCase(PokemonPagingSource(pokemonRepository)) // or however your repository is created
-    }
-
-*/
 }

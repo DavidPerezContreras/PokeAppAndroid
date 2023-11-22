@@ -15,5 +15,5 @@ data class RemotePokemon(
 data class RemotePokemonDetails(
     val name:String,
     val id:String,
-    val abilities:List<AbilityWrapper>
+    val abilities:List<RemoteAbilityWrapper>
 )

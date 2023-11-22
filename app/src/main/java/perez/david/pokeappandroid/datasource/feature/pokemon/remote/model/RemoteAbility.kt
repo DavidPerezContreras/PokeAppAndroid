@@ -12,4 +12,4 @@ data class RemoteAbilityDetails(
 
 
 
-data class AbilityWrapper(val ability:RemoteAbility)
+data class RemoteAbilityWrapper(val remoteAbility:RemoteAbility)

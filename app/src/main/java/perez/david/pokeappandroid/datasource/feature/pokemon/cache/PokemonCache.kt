@@ -10,17 +10,15 @@ class PokemonCache  {
     fun getCacheSize():Int = pokemonList.size
     fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
 
-        //TODO
-        //return if (pokemonList.size !=0) {
             val subList:MutableList<Pokemon> = mutableListOf()
             for (i in offset until limit + offset) {
-                subList.add(Pokemon((i+1).toString(),i+1))
+                val pok: Pokemon? =pokemonList.getOrNull(i)
+                if (pok != null) {
+                    subList.add(Pokemon(pok.name,i+1))
+                }
             }
 
             return subList
-        //} else {
-           // emptyList()
-        //}
     }
 
 

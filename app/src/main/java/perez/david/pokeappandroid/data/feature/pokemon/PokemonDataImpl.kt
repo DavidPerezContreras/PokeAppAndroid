@@ -18,7 +18,7 @@ class PokemonDataImpl (
 
 
         val cache=pokemonCache.getPokemonList(limit,offset)
-        val vuelta:List<Pokemon> = if(pokemonCache.getCacheSize()!=0){
+        val vuelta:List<Pokemon> = if(pokemonCache.getCacheSize()>offset+limit+2){
              cache
         }else{
             val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)
@@ -32,22 +32,3 @@ class PokemonDataImpl (
 
     }
 }
-/*
-override suspend fun getPokemonList(limit:Int, offset:Int): List<Pokemon> {
-
-    val cache=pokemonCache.pokemonList.subList(offset,offset+limit)
-    val vuelta:List<Pokemon> = if(cache.size==limit){
-        cache
-    }else{
-        val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)
-
-        pokemonCache.pokemonList.addAll(remotePokemonsChunk);
-        remotePokemonsChunk
-    }
-
-
-    return vuelta
-}
-}
-*/
-
