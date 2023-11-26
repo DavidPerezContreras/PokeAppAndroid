@@ -14,7 +14,7 @@ class PokemonCache  {
             for (i in offset until limit + offset) {
                 val pok: Pokemon? =pokemonList.getOrNull(i)
                 if (pok != null) {
-                    subList.add(Pokemon(pok.name,i+1))
+                    subList.add(Pokemon(pok.name,pok.url, pok.abilities))
                 }
             }
 

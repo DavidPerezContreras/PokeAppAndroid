@@ -1,8 +1,8 @@
-package perez.david.pokeappandroid.datasource.feature.pokemon.remote.service
+package perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.service
 
-import perez.david.pokeappandroid.datasource.feature.pokemon.remote.model.RemoteAbilityDetails
-import perez.david.pokeappandroid.datasource.feature.pokemon.remote.model.RemotePokemonDetails
-import perez.david.pokeappandroid.datasource.feature.pokemon.remote.model.RemotePokemonList
+import perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.model.RemoteAbilityDetails
+import perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.model.RemotePokemonDetails
+import perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.model.RemotePokemonList
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

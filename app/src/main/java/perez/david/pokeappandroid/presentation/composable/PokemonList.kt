@@ -39,7 +39,7 @@ fun PokemonList(viewModel: PokemonListViewModel = viewModel()) {
             ) {
                 items(
                     count = pokemons.itemCount,
-                    key = pokemons.itemKey { pokemon -> pokemon.id }
+                    key = pokemons.itemKey { pokemon -> pokemon.url }
                 ) { characterIndex ->
                     pokemons[characterIndex]?.let { item ->
                         PokemonCard(pokemon = item)

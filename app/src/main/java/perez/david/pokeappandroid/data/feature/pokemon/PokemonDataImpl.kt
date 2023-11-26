@@ -2,13 +2,14 @@ package perez.david.pokeappandroid.data.feature.pokemon
 
 
 import perez.david.pokeappandroid.datasource.feature.pokemon.cache.PokemonCache
-import perez.david.pokeappandroid.datasource.feature.pokemon.remote.PokemonRemoteImpl
+import perez.david.pokeappandroid.datasource.feature.pokemon.remote.RemoteImpl
+import perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.PokemonApiRemoteImpl
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import perez.david.pokeappandroid.model.Pokemon
 
 
 class PokemonDataImpl (
-    private val pokemonRemoteImpl: PokemonRemoteImpl,
+    private val pokemonRemoteImpl: RemoteImpl,
     private val pokemonCache: PokemonCache //Singleton
     ) : PokemonRepository {
 
