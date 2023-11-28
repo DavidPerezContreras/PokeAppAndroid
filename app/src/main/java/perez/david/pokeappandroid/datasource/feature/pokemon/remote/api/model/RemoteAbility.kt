@@ -1,4 +1,4 @@
-package perez.david.pokeappandroid.datasource.feature.pokemon.remote.model
+package perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.model
 
 import com.google.gson.annotations.SerializedName
 
@@ -12,4 +12,5 @@ data class RemoteAbilityDetails(
 
 
 
-data class RemoteAbilityWrapper(val remoteAbility:RemoteAbility)
+data class RemoteAbilityWrapper(
+    @SerializedName("ability")val remoteAbility: RemoteAbility)

@@ -33,18 +33,11 @@ class MainActivity : FragmentActivity() {
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = name.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.ROOT) else it.toString() }, modifier = modifier
-    )
-}
-
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     PokeAppAndroidTheme {
-        Greeting("nombre 1")
+        Text("nombre 1")
     }
 }

@@ -26,6 +26,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -34,7 +35,6 @@ import perez.david.pokeappandroid.model.Pokemon
 
 @Composable
 fun PokemonCard(pokemon: Pokemon) {
-
     var isExpanded by remember { mutableStateOf(false) }
 
     Card(
@@ -44,31 +44,27 @@ fun PokemonCard(pokemon: Pokemon) {
             .clickable { isExpanded = !isExpanded }
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalAlignment = Alignment.CenterVertically
+            Modifier.fillMaxWidth(),
         ) {
-            Column(
-                modifier = Modifier
-                    .padding(8.dp)
-                    .align(Alignment.CenterVertically)
-            ) {
-                Text(
-                    text = "${pokemon.id} ${pokemon.name}",
-                    style = TextStyle(fontWeight = FontWeight.Bold, fontSize = 20.sp)
-                )
-                // You can add more information here if needed
-            }
             AsyncImage(
                 model = "https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg",
                 contentDescription = pokemon.name + " Image",
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .size(120.dp)
                     .padding(8.dp)
                     .clip(shape = RoundedCornerShape(4.dp)),
             )
+            Text(
+                text = "${pokemon.name}",
+                modifier = Modifier.align(Alignment.CenterVertically),
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+
         }
+
+
 
 
         AnimatedVisibility(
@@ -84,9 +80,36 @@ fun PokemonCard(pokemon: Pokemon) {
 }
 
 
+@Composable
+fun CustomPokemonCard(pokemon: Pokemon) {
+    Row(
+        Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        AsyncImage(
+            model = "https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg",
+            contentDescription = pokemon.name + " Image",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(120.dp)
+                .padding(8.dp)
+                .clip(shape = RoundedCornerShape(4.dp)),
+        )
+        Text(
+            text = "This is a long text that may overflowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
+            modifier = Modifier.align(Alignment.CenterVertically),
+            maxLines = 2,
+            overflow = TextOverflow.Visible
+        )
+
+    }
+}
+
+
+
 @Preview(showBackground = true)
 @Composable
 fun PokemonCardPreview() {
-        PokemonCard(Pokemon("David", -1))
+        PokemonCard(Pokemon("David 11111111111111111111111111111", "url", listOf()))
 
 }

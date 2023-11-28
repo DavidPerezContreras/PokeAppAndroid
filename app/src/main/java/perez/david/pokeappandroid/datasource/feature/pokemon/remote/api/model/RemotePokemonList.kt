@@ -1,4 +1,4 @@
-package perez.david.pokeappandroid.datasource.feature.pokemon.remote.model
+package perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.model
 
 
 // /pokemon limit,offset
