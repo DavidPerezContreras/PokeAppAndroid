@@ -26,7 +26,7 @@ object RepositoryModule {
     //Aqui solo he cambiado Api por Graph para proveer al repo
     @Provides
     fun providePokemonRepository(
-        pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonGraphImpl
+        pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonApiRemoteImpl
     ): PokemonRepository {
         return PokemonDataImpl(
             pokemonRemoteImpl,

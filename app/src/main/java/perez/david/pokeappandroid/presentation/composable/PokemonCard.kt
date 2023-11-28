@@ -45,12 +45,11 @@ fun PokemonCard(pokemon: Pokemon) {
     ) {
         Row(
             Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             AsyncImage(
                 model = "https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-blue-version/8/89/Pikachu.jpg",
                 contentDescription = pokemon.name + " Image",
-                contentScale = ContentScale.Crop,
+                contentScale = ContentScale.Fit,
                 modifier = Modifier
                     .size(120.dp)
                     .padding(8.dp)
@@ -99,8 +98,8 @@ fun CustomPokemonCard(pokemon: Pokemon) {
         Text(
             text = "This is a long text that may overflowwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww",
             modifier = Modifier.align(Alignment.CenterVertically),
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis
+            maxLines = 2,
+            overflow = TextOverflow.Visible
         )
 
     }
@@ -111,6 +110,6 @@ fun CustomPokemonCard(pokemon: Pokemon) {
 @Preview(showBackground = true)
 @Composable
 fun PokemonCardPreview() {
-        PokemonCard(Pokemon("David 1111111111111111111111111", "url", listOf()))
+        PokemonCard(Pokemon("David 11111111111111111111111111111", "url", listOf()))
 
 }

@@ -12,4 +12,5 @@ data class RemoteAbilityDetails(
 
 
 
-data class RemoteAbilityWrapper(val remoteAbility: RemoteAbility)
+data class RemoteAbilityWrapper(
+    @SerializedName("ability")val remoteAbility: RemoteAbility)

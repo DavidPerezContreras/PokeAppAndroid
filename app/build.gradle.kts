@@ -3,9 +3,12 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    //kotlin("android")
 
 
 }
+
+
 
 android {
     namespace = "perez.david.pokeappandroid"
@@ -58,27 +61,12 @@ android {
         correctErrorTypes = true
     }
 
+
 }
 
 dependencies {
 
 
-
-
-    // For instrumentation tests
-    //androidTestImplementation("com.google.dagger:hilt-android-testing:2.48.1")
-    //kaptAndroidTest("com.google.dagger:hilt-compiler:2.48.1")
-
-    // For local unit tests
-    //testImplementation("com.google.dagger:hilt-android-testing:2.48.1")
-    //kaptTest("com.google.dagger:hilt-compiler:2.48.1")
-
-
-
-
-// Hilt ViewModel extensions (if you're using ViewModels) with Kotlin-friendly imports
-    //implementation("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-    //kapt("androidx.hilt:hilt-compiler:1.1.0-beta01")
 
     // OkHttp for HTTP requests
     implementation ("com.squareup.okhttp3:okhttp:4.11.0")
@@ -134,11 +122,6 @@ dependencies {
 
     implementation("androidx.appcompat:appcompat:1.6.1")
 
-    //implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
-    //implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-
-
-    //implementation("androidx.paging:paging-runtime-ktx:3.2.1")
 
 
 
@@ -149,28 +132,15 @@ dependencies {
     kapt ("com.google.dagger:hilt-compiler:2.48.1")
 
 
-// Local Unit Tests
-    /*implementation( "androidx.test:core:1.5.0")
-    testImplementation ( "junit:junit:4.13.2")
-    testImplementation ( "org.hamcrest:hamcrest-all:1.3")
-    testImplementation ( "androidx.arch.core:core-testing:2.2.0")
-    testImplementation ( "org.robolectric:robolectric:4.3.1")
-    testImplementation ( "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
-    testImplementation ( "com.google.truth:truth:1.0.1")
-    testImplementation ( "org.mockito:mockito-core:5.3.1")
 
-    // Instrumented Unit Tests
-    androidTestImplementation ( "junit:junit:4.13.2")
-    //androidTestImplementation ( "com.linkedin.dexmaker:dexmaker-mockito:2.12.1")
-    androidTestImplementation ( "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
-    androidTestImplementation ( "androidx.arch.core:core-testing:2.2.0")
-    androidTestImplementation ( "com.google.truth:truth:1.0.1")
-    androidTestImplementation ( "androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ( "androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation ( "org.mockito:mockito-core:5.3.1")
-    androidTestImplementation ( "com.google.dagger:hilt-android-testing:2.48.1")
-    kaptAndroidTest ( "com.google.dagger:hilt-android-compiler:2.44")
-*/
+
+    //apollo
+    implementation("com.apollographql.apollo:apollo-runtime:2.5.9")
+    implementation("com.apollographql.apollo:apollo-coroutines-support:2.5.9")
+
+
 }
+
+
 
 
