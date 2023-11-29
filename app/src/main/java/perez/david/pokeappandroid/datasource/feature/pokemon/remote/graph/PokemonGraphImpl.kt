@@ -11,15 +11,6 @@ import javax.inject.Inject
 class PokemonGraphImpl @Inject constructor(
 
 ) :RemoteImpl{
-
-    val apolloClient = ApolloClient.builder()
-        .serverUrl("https://graphql-pokemon2.vercel.app/")
-        .build()
-
-
-
-
-
     override suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
         return listOf()
     }

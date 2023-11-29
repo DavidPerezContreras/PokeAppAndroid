@@ -26,7 +26,7 @@ object RepositoryModule {
     //Aqui solo he cambiado Api por Graph para proveer al repo
     @Provides
     fun providePokemonRepository(
-        pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonApiRemoteImpl
+        pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonApiRemoteImpl //Cuando la api de GrapQL esté implementada sólo hay que cambiar una clase por otra.
     ): PokemonRepository {
         return PokemonDataImpl(
             pokemonRemoteImpl,
