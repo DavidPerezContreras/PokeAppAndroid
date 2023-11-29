@@ -94,7 +94,7 @@
 
 
             Box(
-                modifier = Modifier.height(130.dp)){
+                modifier = Modifier.height(200.dp)){
                 Column{
 
 
