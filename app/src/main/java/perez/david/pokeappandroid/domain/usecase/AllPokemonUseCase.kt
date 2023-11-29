@@ -15,7 +15,7 @@ open class AllPokemonUseCase @Inject constructor(
             enablePlaceholders = false,
             maxSize = 50,
             //maxSize= MAX_SIZE_UNBOUNDED, //disables lazy loading //currently caching using flow.cachedIn(viewmodelScope)
-            prefetchDistance = limit,
+            prefetchDistance = limit/2,
             initialLoadSize = limit,
         ),
         pagingSourceFactory = {
