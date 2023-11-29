@@ -39,8 +39,8 @@ class PokemonApiRemoteImpl @Inject constructor(retrofit: Retrofit) :RemoteImpl {
     suspend fun getAbilityList(remoteAbilityList: List<RemoteAbility>): List<Ability> {
         val abilities = mutableListOf<Ability>()
 
-        for (i in remoteAbilityList.indices) {
-            val abilityDetails = getAbilityById(i + 1) // Adding 1 to the index to get the correct ability ID
+        for (remoteAbility in remoteAbilityList) {
+            val abilityDetails = getAbilityById(extractId(remoteAbility.url)) // Adding 1 to the index to get the correct ability ID
             abilities.add(
                 Ability(
                     name = abilityDetails.name,
@@ -52,20 +52,6 @@ class PokemonApiRemoteImpl @Inject constructor(retrofit: Retrofit) :RemoteImpl {
 
         return abilities
     }
-/*
-    override suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
-        val pokemons = mutableListOf<Pokemon>()
-
-        val remotePokemonList = pokemonService.getPokemonList(limit, offset).results
-        remotePokemonList.forEach {
-            pokemons.add(Pokemon(it.name, url = it.url, listOf()))
-        }
-
-        return pokemons.toList()
-    }*/
-
-
-
 
 
     override suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
