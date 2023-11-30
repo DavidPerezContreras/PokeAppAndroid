@@ -25,10 +25,15 @@ class PokemonPagingSource
             var offset=page*limit
             var response: List<Pokemon> = listOf()
 
+            coroutineScope {
 
-               response = pokemonRepository.getPokemonList(
-                   limit,offset
-               )
+                launch(Dispatchers.IO) {
+
+                    response = pokemonRepository.getPokemonList(
+                        limit,offset
+                    )
+                }}
+
 
 
 
