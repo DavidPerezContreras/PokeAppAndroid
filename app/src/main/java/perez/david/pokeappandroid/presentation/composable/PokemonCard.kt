@@ -100,10 +100,12 @@
 
                     Text("Abilities",
                         style=TextStyle(fontSize = 24.sp),
+                        color=Color.White,
                         textAlign = TextAlign.Center,
                         modifier=Modifier
                             .fillMaxWidth()
-                            .background(color = Color.DarkGray)
+                            .background(color = Color.LightGray)
+                            .padding(horizontal = 30.dp)
                     )
 
                     LazyVerticalGrid(
@@ -111,7 +113,7 @@
                         contentPadding = PaddingValues(16.dp),
                     ) {
                         items(pokemon.abilities.size) { index ->
-                            Card(
+                            Box(
                                 modifier = Modifier
                                     .background(color = Color.Gray, shape = RoundedCornerShape(8.dp))
                                     .padding(8.dp)
