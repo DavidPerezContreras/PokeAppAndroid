@@ -14,12 +14,9 @@ class PokemonDataImpl(
 
 
     override suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
-        //return pokemonRemoteImpl.getPokemonList(limit, offset)
+        var vuelta: List<Pokemon>
 
-        var vuelta: List<Pokemon> = listOf<Pokemon>()
-        var cache = listOf<Pokemon>()
-
-        cache = pokemonCache.getPokemonList(limit, offset)
+        var cache : List<Pokemon> = pokemonCache.getPokemonList(limit, offset)
         vuelta = if (pokemonCache.getCacheSize() > offset + limit + 2) {//2 era por que mejor que sobre...
             cache
         } else {
