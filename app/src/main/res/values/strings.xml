@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">PokeAppAndroid</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="author_name">David Perez Contreras</string>
+    <string name="about">About</string>
+    <string name="home">Home</string>
+    <string name="about_description">I’m a Junior Full-Stack Developer with a passion for music and technology. This is my first app in Jetpack Compose, a modern toolkit for building native Android UI. I’m excited to continue exploring and innovating in a technology with that many oportunities.</string>
+    <string name="author_image_content_description">Author Image</string>
+    <string name="about_title">¡My First Jetpack Compose App!\n🎂</string>
 </resources>

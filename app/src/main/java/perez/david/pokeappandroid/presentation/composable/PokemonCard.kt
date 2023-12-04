@@ -67,7 +67,7 @@ fun PokemonCard(pokemon: Pokemon) {
         ) {
             LoadImageWithCoilAndProgress(data = pokemon.officialArtwork, pokemon.name)
             Text(
-                text = pokemon.url.replaceFirstChar { if (it.isLowerCase()) it.titlecase(Locale.getDefault()) else it.toString() },
+                text = pokemon.name.replaceFirstChar { if (it.isLowerCase()) it.titlecase() else it.toString() },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(8.dp)

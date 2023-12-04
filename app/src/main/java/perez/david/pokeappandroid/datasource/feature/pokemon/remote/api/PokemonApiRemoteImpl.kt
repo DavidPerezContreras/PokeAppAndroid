@@ -59,11 +59,7 @@ class PokemonApiRemoteImpl @Inject constructor(retrofit: Retrofit) :RemoteImpl {
     override suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
         try {
             val pokemons = mutableListOf<Pokemon>()
-
-
             coroutineScope {
-
-
                     val remotePokemonList = pokemonService.getPokemonList(limit, offset).results
                     val pokemonDetailsDeferred = remotePokemonList.map { remotePokemon ->
                         val id = extractId(remotePokemon.url)
@@ -89,9 +85,6 @@ class PokemonApiRemoteImpl @Inject constructor(retrofit: Retrofit) :RemoteImpl {
                                 abilities = abilities,
                                 officialArtwork = remotePokemonDetails.sprite.getFrontDefault()
                             )
-
-                            //print(abilities.toString())
-
                             pokemons.add(pokemon)
                         }
 

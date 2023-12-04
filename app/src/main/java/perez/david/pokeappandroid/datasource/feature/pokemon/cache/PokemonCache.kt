@@ -6,7 +6,6 @@ import perez.david.pokeappandroid.model.Pokemon
 import javax.inject.Inject
 
 class PokemonCache  {
-
     private val pokemonList: MutableList<Pokemon> = mutableListOf()
     fun getCacheSize():Int = pokemonList.size
     suspend fun getPokemonList(limit: Int, offset: Int): List<Pokemon> {
@@ -18,7 +17,6 @@ class PokemonCache  {
                     subList.add(Pokemon(pok.name,pok.url, pok.abilities,pok.officialArtwork))
                 }
             }
-
             return subList
     }
 

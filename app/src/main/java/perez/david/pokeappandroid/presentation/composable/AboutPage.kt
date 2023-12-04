@@ -29,36 +29,32 @@ fun AboutPage() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = Color.LightGray) // Light blue background color
+            .background(color = Color.LightGray)
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Header with a birthday cake emoji
-        Text("¡Mi primera app\nen Jetpack Compose!\n🎂", color = Color.Black,textAlign = TextAlign.Center,fontSize = 24.sp, fontWeight = FontWeight.Bold)
+        Text(stringResource(R.string.about_title), color = Color.Black,textAlign = TextAlign.Center,fontSize = 24.sp, fontWeight = FontWeight.Bold)
 
-        // Author image
         AsyncImage(
 
             model = "https://media.licdn.com/dms/image/D4D03AQH01tCVa3MkTw/profile-displayphoto-shrink_800_800/0/1698511621643?e=1706745600&v=beta&t=0tpJna_ISkKqLo2PiN-rtOOdEWcnPkVuwzpJMsxeDuc",
-            contentDescription = "Author Image",
+            contentDescription = stringResource(R.string.author_image_content_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(200.dp)
                 .padding(16.dp)
                 .clip(shape = CircleShape),
         )
-
-        // Author name and description
         Text(
             text = stringResource(R.string.author_name),
             fontSize = 20.sp,
             fontWeight = FontWeight.Bold,
-            color = Color(0xFF01579B), // Dark blue color
+            color = Color(0xFF01579B),
             modifier = Modifier.padding(bottom = 8.dp)
         )
         Text(
-            text = "Desarrollador de software apasionado por la programación y la tecnología. ¡Gracias por un increíble primer año juntos en Compose!",
+            text = stringResource(R.string.about_description),
             fontSize = 16.sp,
             color = Color.Gray,
             textAlign = TextAlign.Center

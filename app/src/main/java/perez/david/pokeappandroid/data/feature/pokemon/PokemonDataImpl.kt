@@ -1,12 +1,8 @@
 package perez.david.pokeappandroid.data.feature.pokemon
 
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.launch
 import perez.david.pokeappandroid.datasource.feature.pokemon.cache.PokemonCache
 import perez.david.pokeappandroid.datasource.feature.pokemon.remote.RemoteImpl
-import perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.PokemonApiRemoteImpl
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import perez.david.pokeappandroid.model.Pokemon
 
@@ -24,7 +20,7 @@ class PokemonDataImpl(
         var cache = listOf<Pokemon>()
 
         cache = pokemonCache.getPokemonList(limit, offset)
-        vuelta = if (pokemonCache.getCacheSize() > offset + limit + 2) {
+        vuelta = if (pokemonCache.getCacheSize() > offset + limit + 2) {//2 era por que mejor que sobre...
             cache
         } else {
             val remotePokemonsChunk = pokemonRemoteImpl.getPokemonList(limit, offset)

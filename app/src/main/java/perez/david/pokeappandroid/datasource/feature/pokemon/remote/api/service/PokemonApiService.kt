@@ -17,7 +17,4 @@ interface PokemonApiService {
     @GET("ability/{id}")
     suspend fun getAbilityDetails(@Path("id") id: Int): RemoteAbilityDetails
 
-    //@GET("move/{id}")
-    //suspend fun getMoveDetails(@Path("id") id: Int): RemoteMoveDetails
-
 }

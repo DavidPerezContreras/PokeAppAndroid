@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountBox
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -28,6 +29,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import perez.david.pokeappandroid.R
 import perez.david.pokeappandroid.presentation.composable.AboutPage
 import perez.david.pokeappandroid.presentation.composable.HomePage
 import perez.david.pokeappandroid.presentation.theme.PokeAppAndroidTheme
@@ -55,17 +57,23 @@ class MainFragment : Fragment() {
 
                 PokeAppAndroidTheme {
                     val navController = rememberNavController()
-                    val items = listOf("home", "about")
+                    val items = listOf(context.getString(R.string.home), context.getString(R.string.about))
 
                     Scaffold(bottomBar = {
                         NavigationBar {
                             val navBackStackEntry by navController.currentBackStackEntryAsState()
                             val currentRoute = navBackStackEntry?.arguments?.getString("route")
 
+                            var screenIndex:Int=1;
                             items.forEach { screen ->
+                                val icon = if(screenIndex==1){
+                                    Icons.Filled.Home
+                                } else {
+                                    Icons.Filled.AccountBox
+                                }
                                 NavigationBarItem(icon = {
                                     Icon(
-                                        Icons.Filled.Home,
+                                        icon,
                                         contentDescription = null
                                     )
                                 }, // Change icon as per your requirement
@@ -76,7 +84,10 @@ class MainFragment : Fragment() {
                                             popUpTo(0)
                                             launchSingleTop = true
                                         }
-                                    })
+                                    }
+                                )
+                                screenIndex++
+
                             }
                         }
                     }) {paddingValues ->
