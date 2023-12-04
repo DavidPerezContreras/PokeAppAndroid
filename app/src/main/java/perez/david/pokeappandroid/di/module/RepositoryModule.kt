@@ -7,7 +7,6 @@ import dagger.hilt.components.SingletonComponent
 import perez.david.pokeappandroid.data.feature.pokemon.PokemonDataImpl
 import perez.david.pokeappandroid.datasource.feature.pokemon.cache.PokemonCache
 import perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.PokemonApiRemoteImpl
-import perez.david.pokeappandroid.datasource.feature.pokemon.remote.graph.PokemonGraphImpl
 import perez.david.pokeappandroid.domain.repository.PokemonRepository
 import javax.inject.Singleton
 
@@ -22,8 +21,6 @@ object RepositoryModule {
     }
 
 
-
-    //Aqui solo he cambiado Api por Graph para proveer al repo
     @Provides
     fun providePokemonRepository(
         pokemonCache: PokemonCache, pokemonRemoteImpl: PokemonApiRemoteImpl //Cuando la api de GrapQL esté implementada sólo hay que cambiar una clase por otra.
