@@ -8,7 +8,7 @@ data class RemoteAbilityDetails(
     val id :Int,
     val name:String,
     @SerializedName("flavor_text_entries") val flavorTextEntries:List<FlavorText>
-    )
+)
 
 
 

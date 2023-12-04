@@ -3,9 +3,6 @@ plugins {
     id("org.jetbrains.kotlin.android")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
-    //kotlin("android")
-
-
 }
 
 
@@ -82,17 +79,6 @@ dependencies {
     implementation("androidx.room:room-runtime:2.6.0")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
     implementation("androidx.test:runner:1.5.2")
-    //kapt("androidx.room:room-compiler:2.6.0")
-
-    //implementation("io.coil-kt:coil-compose:2.4.0")
-
-
-
-
-
-    //implementation("com.jakewharton.timber:timber:4.7.1")
-
-    //implementation("androidx.hilt:hilt-navigation-compose")
 
 
 
@@ -134,9 +120,18 @@ dependencies {
 
 
 
-    //apollo
-    implementation("com.apollographql.apollo:apollo-runtime:2.5.9")
-    implementation("com.apollographql.apollo:apollo-coroutines-support:2.5.9")
+
+
+
+
+
+    implementation ("androidx.activity:activity-compose:1.8.1")
+    implementation ("androidx.compose.foundation:foundation:1.5.4")
+    implementation ("androidx.compose.material3:material3:1.1.2")
+    //implementation ("androidx.compose.material3:material3-icons-extended:1.0.5")
+    implementation ("androidx.compose.ui:ui-tooling:1.5.4")
+    implementation ("androidx.navigation:navigation-compose:2.7.5")
+
 
 
 }

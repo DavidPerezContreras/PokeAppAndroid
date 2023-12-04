@@ -1,5 +1,7 @@
 package perez.david.pokeappandroid.datasource.feature.pokemon.remote.api.model
 
+import com.google.gson.annotations.SerializedName
+
 
 // /pokemon limit,offset
 data class RemotePokemonList(
@@ -15,5 +17,6 @@ data class RemotePokemon(
 data class RemotePokemonDetails(
     val name:String,
     val id:String,
-    val abilities:List<RemoteAbilityWrapper>
+    val abilities:List<RemoteAbilityWrapper>,
+    @SerializedName("sprites")val sprite:RemoteSprite
 )
